@@ -1,7 +1,13 @@
 <template>
   <div v-if="targetCompanies">
-    <table v-for="(company, companyIndex) in targetCompanies" :key="`targetCompany${companyIndex}`">
-      <tr v-for="(pair, pairIndex) in company.pairs" :key="`targetCompany${pairIndex}`">
+    <table
+      v-for="(company, companyIndex) in targetCompanies"
+      :key="`targetCompany${companyIndex}`"
+    >
+      <tr
+        v-for="(pair, pairIndex) in company.pairs"
+        :key="`targetCompany${pairIndex}`"
+      >
         <td>{{ pair.symbol }}</td>
         <td>{{ pair.price }}</td>
       </tr>
@@ -16,11 +22,13 @@ export default {
     msg: String,
   },
   beforeCreate() {
-    this.$store.dispatch('getPriceLists');
+    this.$store.dispatch("getPriceLists");
   },
   computed: {
     //sourceCompany: () => this.$store.state.sourceCompany,
-    targetCompanies() { return this.$store.state.targetCompanies }
-  }
+    targetCompanies() {
+      return this.$store.state.targetCompanies;
+    },
+  },
 };
 </script>
